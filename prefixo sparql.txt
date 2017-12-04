@@ -1,0 +1,15 @@
+    Prefix txt: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#>
+    Prefix owl: <http://www.w3.org/2002/07/owl#/>
+    Prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    Prefix xml: <http://www.w3.org/XML/1998/namespace>
+    Prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+    Prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    Prefix seco: <http://www.seco.com/ontoloy/seco.owl#>
+    Prefix swrl: <http://www.w3.org/2003/11/swrl#>
+    Prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>
+    Prefix swrlb: <http://www.w3.org/2003/11/swrlb#>
+      SELECT *
+                WHERE 
+	{
+	?k rdf:type txt:Health
+}
