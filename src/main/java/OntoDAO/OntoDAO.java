@@ -18,6 +18,7 @@ import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import java.util.ArrayList;
 
@@ -32,7 +33,7 @@ public class OntoDAO {
     public static ArrayList<PlatformModel> returnHeterogeneity(){
         
         PlatformModel model;
-        OntModel seco = OntoConnection.OntoConnection();
+        InfModel seco = OntoConnection.OntoConnection();
         ArrayList<PlatformModel> Result = new ArrayList<PlatformModel>();
               
               
@@ -41,24 +42,16 @@ public class OntoDAO {
         
             String query;
             query = "PREFIX xmlns: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "PREFIX base: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl>\n" +
-                    "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-                    "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
-                    "PREFIX xml: <http://www.w3.org/XML/1998/namespace>\n" +
-                    "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
-                    "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
-                    "PREFIX seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
-                    "PREFIX swrl: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "	SELECT *\n" +
-                    "	WHERE { ?k seco:isDevelopedOf ?a.\n" +
-                    "	        ?k seco:isDevelopedOf ?b.\n" +
-                    "	        ?a swrl:hasLiveDifferentCountry ?b.\n" +
-                    "	        ?k swrl:hasLinkTo ?w.\n" +
-                    "           ?k swrl:hasLinkTo ?z.\n" +
-                    "           ?w swrl:hasNetworkNode ?z.\n" +
-                    "           ?k seco:hasSuport ?c.\n" +
-                    "           ?k seco:hasSuport ?d.\n" +
-                    "           ?c swrl:hasSemanticDistance ?d}";
+"                    PREFIX base: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl>\n" +
+"                    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+"                    PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
+"                    PREFIX xml: <http://www.w3.org/XML/1998/namespace>\n" +
+"                    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+"                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+"                    PREFIX seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
+"                    PREFIX swrl: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
+"                   SELECT *\n" +
+"                    WHERE {?a rdf:type xmlns:Heterogeneity}";
 
 
 
@@ -73,16 +66,6 @@ public class OntoDAO {
                     model.setName(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
                     subject = linha.get("a");
                     model.setNameDeveloper1(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#", ""));
-                    subject = linha.get("b");
-                    model.setNameDeveloper2(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#", ""));
-                    subject = linha.get("c");
-                    model.setNameSupport1(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#", ""));
-                    subject = linha.get("d");
-                    model.setNameSupport2(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#", ""));
-                    subject = linha.get("w");
-                    model.setNameNode1(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#", ""));
-                    subject = linha.get("z");
-                    model.setNameNode2(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#", ""));
                     Result.add(model);
                 }
                 return Result;
@@ -94,7 +77,7 @@ public class OntoDAO {
     public static ArrayList<PlatformModel> returnRegenerationAbility(){
         
         PlatformModel model;
-        OntModel seco = OntoConnection.OntoConnection();
+        InfModel seco = OntoConnection.OntoConnection();
         ArrayList<PlatformModel> Result = new ArrayList<PlatformModel>();
         String trata;
         
@@ -149,7 +132,7 @@ public class OntoDAO {
     public static ArrayList<PlatformModel> returnEffortBalance(){
         
         PlatformModel model;
-        OntModel seco = OntoConnection.OntoConnection();
+        InfModel seco = OntoConnection.OntoConnection();
         ArrayList<PlatformModel> Result = new ArrayList<PlatformModel>();
         String trata;
         
@@ -230,7 +213,7 @@ public class OntoDAO {
     public static ArrayList<IndividualModel> returnExpertiseBalance(){
         
         IndividualModel model;
-        OntModel seco = OntoConnection.OntoConnection();
+        InfModel seco = OntoConnection.OntoConnection();
         ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
         
         if(seco != null){
@@ -272,7 +255,7 @@ public class OntoDAO {
     public static ArrayList<IndividualModel> returnVisibility(){
         
         IndividualModel model;
-        OntModel seco = OntoConnection.OntoConnection();
+        InfModel seco = OntoConnection.OntoConnection();
         ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
         
         if(seco != null){
@@ -314,7 +297,7 @@ public class OntoDAO {
     public static ArrayList<IndividualModel> returnSustainability(){
         
         IndividualModel model;
-        OntModel seco = OntoConnection.OntoConnection();
+        InfModel seco = OntoConnection.OntoConnection();
         ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
         
         if(seco != null){
@@ -356,7 +339,7 @@ public class OntoDAO {
     public static ArrayList<IndividualModel> returnHealth(){
         
         IndividualModel model;
-        OntModel seco = OntoConnection.OntoConnection();
+        InfModel seco = OntoConnection.OntoConnection();
         ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
         
         if(seco != null){
@@ -398,7 +381,7 @@ public class OntoDAO {
     public static ArrayList<PlatformModel> returnProductivity(){
         
         PlatformModel model;
-        OntModel seco = OntoConnection.OntoConnection();
+        InfModel seco = OntoConnection.OntoConnection();
         ArrayList<PlatformModel> Result = new ArrayList<PlatformModel>();
         String trata;
         
@@ -506,7 +489,7 @@ public class OntoDAO {
     public static ArrayList<PlatformModel> returnDiversity(){
         
         PlatformModel model;
-        OntModel seco = OntoConnection.OntoConnection();
+        InfModel seco = OntoConnection.OntoConnection();
         ArrayList<PlatformModel> Result = new ArrayList<PlatformModel>();
         String trata;
         
@@ -588,7 +571,7 @@ public class OntoDAO {
     public static ArrayList<PlatformModel> returnNicheCreation(){
         
         PlatformModel model;
-        OntModel seco = OntoConnection.OntoConnection();
+        InfModel seco = OntoConnection.OntoConnection();
         ArrayList<PlatformModel> Result = new ArrayList<PlatformModel>();
         String trata;
         
