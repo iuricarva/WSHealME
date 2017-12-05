@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class OntoController {
     
         
-    public static ArrayList<PlatformModel> returnHeterogeneity(){
+    public static ArrayList<IndividualModel> returnHeterogeneity(){
         return OntoDAO.returnHeterogeneity();
     }
     

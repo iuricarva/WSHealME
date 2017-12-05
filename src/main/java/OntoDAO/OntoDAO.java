@@ -30,28 +30,30 @@ import java.util.ArrayList;
 public class OntoDAO {
     
           
-    public static ArrayList<PlatformModel> returnHeterogeneity(){
+    public static ArrayList<IndividualModel> returnHeterogeneity(){
         
-        PlatformModel model;
+        IndividualModel model;
         InfModel seco = OntoConnection.OntoConnection();
-        ArrayList<PlatformModel> Result = new ArrayList<PlatformModel>();
+        ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
               
               
         
         if(seco != null){
         
             String query;
-            query = "PREFIX xmlns: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-"                    PREFIX base: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl>\n" +
-"                    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-"                    PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
-"                    PREFIX xml: <http://www.w3.org/XML/1998/namespace>\n" +
-"                    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
-"                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
-"                    PREFIX seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
-"                    PREFIX swrl: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-"                   SELECT *\n" +
-"                    WHERE {?a rdf:type xmlns:Heterogeneity}";
+            query = "    Prefix txt: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#>\n" +
+                    "    Prefix owl: <http://www.w3.org/2002/07/owl#/>\n" +
+                    "    Prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+                    "    Prefix xml: <http://www.w3.org/XML/1998/namespace>\n" +
+                    "    Prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+                    "    Prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                    "    Prefix seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
+                    "    Prefix swrl: <http://www.w3.org/2003/11/swrl#>\n" +
+                    "    Prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>\n" +
+                    "    Prefix swrlb: <http://www.w3.org/2003/11/swrlb#>\n" +
+                    "      SELECT *\n" +
+                    "      WHERE \n" +
+                    "	{?k rdf:type txt:Heterogeneity\n}";
 
 
 
@@ -61,11 +63,9 @@ public class OntoDAO {
                     ResultSet resultado = qexec.execSelect();
                 while(resultado.hasNext()) {
                     QuerySolution linha = (QuerySolution) resultado.next();
-                    model = new PlatformModel();
+                    model = new IndividualModel();
                     RDFNode subject = linha.get("k");
-                    model.setName(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("a");
-                    model.setNameDeveloper1(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#", ""));
+                    model.setName(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#", ""));
                     Result.add(model);
                 }
                 return Result;
@@ -345,19 +345,19 @@ public class OntoDAO {
         if(seco != null){
         
             String query;
-            query = "PREFIX xmlns: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "PREFIX base: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl>\n" +
-                    "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-                    "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
-                    "PREFIX xml: <http://www.w3.org/XML/1998/namespace>\n" +
-                    "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
-                    "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
-                    "PREFIX seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
-                    "PREFIX swrl: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "	SELECT *\n" +
-                    "   WHERE { \n" +
-                    "		?k rdf:type ?<http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#Health>.  \n" +
-                    "	}";
+            query = "    Prefix txt: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#>\n" +
+                    "    Prefix owl: <http://www.w3.org/2002/07/owl#/>\n" +
+                    "    Prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+                    "    Prefix xml: <http://www.w3.org/XML/1998/namespace>\n" +
+                    "    Prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+                    "    Prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                    "    Prefix seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
+                    "    Prefix swrl: <http://www.w3.org/2003/11/swrl#>\n" +
+                    "    Prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>\n" +
+                    "    Prefix swrlb: <http://www.w3.org/2003/11/swrlb#>\n" +
+                    "      SELECT *\n" +
+                    "      WHERE \n" +
+                    "	{?k rdf:type txt:Health\n}";
 
 
 
@@ -369,7 +369,7 @@ public class OntoDAO {
                     QuerySolution linha = (QuerySolution) resultado.next();
                     model = new IndividualModel();
                     RDFNode subject = linha.get("k");
-                    model.setName(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
+                    model.setName(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#", ""));
                     Result.add(model);
                 }
                 return Result;

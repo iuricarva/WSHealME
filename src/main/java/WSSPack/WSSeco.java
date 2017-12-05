@@ -43,7 +43,7 @@ public class WSSeco {
     @GET
     @Produces(MediaType.APPLICATION_XML)
     @Path("getheterogeneity")
-    public List<PlatformModel> getHeterogeneity() {
+    public List<IndividualModel> getHeterogeneity() {
         
         return OntoController.returnHeterogeneity();
         
