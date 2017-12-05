@@ -56,5 +56,9 @@ public class OntoController {
      public static ArrayList<PlatformModel> returnNicheCreation(){
         return OntoDAO.returnNicheCreation();
     }
+     
+     public static void setPlatform(){
+         
+     }
     
 }

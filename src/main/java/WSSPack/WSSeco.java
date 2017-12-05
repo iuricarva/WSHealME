@@ -16,6 +16,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -129,6 +130,14 @@ public class WSSeco {
         
         return OntoController.returnNicheCreation();
         
+    }
+    
+    @GET
+    @Path("/{parameter}/{parameter2}")
+    @Produces(MediaType.APPLICATION_XML)
+    public void getTeste(@PathParam("parameter")String parameter, @PathParam("parameter2")String parameterteste) {
+        System.out.println(parameter);        
+        System.out.println(parameterteste);
     }
 
     /**
