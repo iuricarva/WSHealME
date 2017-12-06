@@ -7,8 +7,9 @@ package OntoDAO;
 
 
 import Model.IndividualModel;
-import Model.PlatformModel;
 import Util.OntoConnection;
+import com.hp.hpl.jena.ontology.Individual;
+import com.hp.hpl.jena.ontology.ObjectProperty;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.query.Dataset;
 import com.hp.hpl.jena.query.DatasetFactory;
@@ -20,6 +21,7 @@ import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.RDFNode;
+import com.hp.hpl.jena.rdf.model.Resource;
 import java.util.ArrayList;
 
 
@@ -74,29 +76,30 @@ public class OntoDAO {
         }
     }
     
-    public static ArrayList<PlatformModel> returnRegenerationAbility(){
+    public static ArrayList<IndividualModel> returnRegenerationAbility(){
         
-        PlatformModel model;
+        IndividualModel model;
         InfModel seco = OntoConnection.OntoConnection();
-        ArrayList<PlatformModel> Result = new ArrayList<PlatformModel>();
-        String trata;
+        ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
+              
+              
         
         if(seco != null){
         
             String query;
-            query = "PREFIX xmlns: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "PREFIX base: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl>\n" +
-                    "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-                    "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
-                    "PREFIX xml: <http://www.w3.org/XML/1998/namespace>\n" +
-                    "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
-                    "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
-                    "PREFIX seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
-                    "PREFIX swrl: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "	SELECT *\n" +
-                    "	WHERE {?a seco:hasMaintained ?k.\n" +
-                    "          ?a swrl:timeWorkTogether ?t.\n" +
-                    "          ?k swrl:hasNewMember ?b}";
+            query = "    Prefix txt: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#>\n" +
+                    "    Prefix owl: <http://www.w3.org/2002/07/owl#/>\n" +
+                    "    Prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+                    "    Prefix xml: <http://www.w3.org/XML/1998/namespace>\n" +
+                    "    Prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+                    "    Prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                    "    Prefix seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
+                    "    Prefix swrl: <http://www.w3.org/2003/11/swrl#>\n" +
+                    "    Prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>\n" +
+                    "    Prefix swrlb: <http://www.w3.org/2003/11/swrlb#>\n" +
+                    "      SELECT *\n" +
+                    "      WHERE \n" +
+                    "	{?k rdf:type txt:RegenerationAbility\n}";
 
 
 
@@ -105,22 +108,10 @@ public class OntoDAO {
                     QueryExecution qexec = QueryExecutionFactory.create(consulta,dataset);
                     ResultSet resultado = qexec.execSelect();
                 while(resultado.hasNext()) {
-                    trata = "";
                     QuerySolution linha = (QuerySolution) resultado.next();
-                    model = new PlatformModel();
+                    model = new IndividualModel();
                     RDFNode subject = linha.get("k");
-                    model.setName(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("t");
-                    trata = subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", "");
-                    trata = trata.replace("^^","");
-                    trata = trata.replace("\"","");
-                    trata = trata.replace("<","");
-                    trata = trata.replace(">","");
-                    trata = trata.replace("http://www.w3.org/2001/XMLSchema#int","");
-                    model.setTimeWorkTogether(Integer.parseInt(trata));
-                    subject = linha.get("b");
-                    model.setNameDeveloper1(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#", ""));
-
+                    model.setName(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#", ""));
                     Result.add(model);
                 }
                 return Result;
@@ -129,34 +120,30 @@ public class OntoDAO {
         }
     }
     
-    public static ArrayList<PlatformModel> returnEffortBalance(){
+    public static ArrayList<IndividualModel> returnEffortBalance(){
         
-        PlatformModel model;
+        IndividualModel model;
         InfModel seco = OntoConnection.OntoConnection();
-        ArrayList<PlatformModel> Result = new ArrayList<PlatformModel>();
-        String trata;
+        ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
+              
+              
         
         if(seco != null){
         
             String query;
-            query = "PREFIX xmlns: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "PREFIX base: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl>\n" +
-                    "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-                    "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
-                    "PREFIX xml: <http://www.w3.org/XML/1998/namespace>\n" +
-                    "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
-                    "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
-                    "PREFIX seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
-                    "PREFIX swrl: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "	SELECT *\n" +
-                    "	WHERE { ?k seco:isDevelopedOf ?a.\n" +
-                    "	        ?a swrl:DeveloperCommits ?c.\n" +
-                    "           ?k seco:isDevelopedOf ?b.\n" +
-                    "           ?b swrl:DeveloperHoursWork ?h.\n" +
-                    "           ?k seco:isDevelopedOf ?d.\n" +
-                    "           ?d swrl:ActiveDeveloper ?t.\n" +
-                    "		?k seco:isDevelopedOf ?e.\n" +
-                    "           ?e swrl:NumberOfReleases ?r}";
+            query = "    Prefix txt: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#>\n" +
+                    "    Prefix owl: <http://www.w3.org/2002/07/owl#/>\n" +
+                    "    Prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+                    "    Prefix xml: <http://www.w3.org/XML/1998/namespace>\n" +
+                    "    Prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+                    "    Prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                    "    Prefix seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
+                    "    Prefix swrl: <http://www.w3.org/2003/11/swrl#>\n" +
+                    "    Prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>\n" +
+                    "    Prefix swrlb: <http://www.w3.org/2003/11/swrlb#>\n" +
+                    "      SELECT *\n" +
+                    "      WHERE \n" +
+                    "	{?k rdf:type txt:EffortBalance\n}";
 
 
 
@@ -165,43 +152,10 @@ public class OntoDAO {
                     QueryExecution qexec = QueryExecutionFactory.create(consulta,dataset);
                     ResultSet resultado = qexec.execSelect();
                 while(resultado.hasNext()) {
-                    trata = "";
                     QuerySolution linha = (QuerySolution) resultado.next();
-                    model = new PlatformModel();
+                    model = new IndividualModel();
                     RDFNode subject = linha.get("k");
-                    model.setName(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("c");
-                    trata = subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", "");
-                    trata = trata.replace("^^","");
-                    trata = trata.replace("\"","");
-                    trata = trata.replace("<","");
-                    trata = trata.replace(">","");
-                    trata = trata.replace("http://www.w3.org/2001/XMLSchema#int","");
-                    model.setDeveloperCommits(Integer.parseInt(trata));
-                    subject = linha.get("h");
-                    trata = subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", "");
-                    trata = trata.replace("^^","");
-                    trata = trata.replace("\"","");
-                    trata = trata.replace("<","");
-                    trata = trata.replace(">","");
-                    trata = trata.replace("http://www.w3.org/2001/XMLSchema#int","");
-                    model.setDeveloperHoursWork(Integer.parseInt(trata));
-                    subject = linha.get("t");
-                    trata = subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", "");
-                    trata = trata.replace("^^","");
-                    trata = trata.replace("\"","");
-                    trata = trata.replace("<","");
-                    trata = trata.replace(">","");
-                    trata = trata.replace("http://www.w3.org/2001/XMLSchema#boolean","");
-                    model.setActiveDeveloper(Boolean.valueOf(trata));
-                    subject = linha.get("r");
-                    trata = subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", "");
-                    trata = trata.replace("^^","");
-                    trata = trata.replace("\"","");
-                    trata = trata.replace("<","");
-                    trata = trata.replace(">","");
-                    trata = trata.replace("http://www.w3.org/2001/XMLSchema#int","");
-                    model.setNumberOfReleases(Integer.parseInt(trata));
+                    model.setName(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#", ""));
                     Result.add(model);
                 }
                 return Result;
@@ -215,23 +169,25 @@ public class OntoDAO {
         IndividualModel model;
         InfModel seco = OntoConnection.OntoConnection();
         ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
+              
+              
         
         if(seco != null){
         
             String query;
-            query = "PREFIX xmlns: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "PREFIX base: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl>\n" +
-                    "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-                    "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
-                    "PREFIX xml: <http://www.w3.org/XML/1998/namespace>\n" +
-                    "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
-                    "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
-                    "PREFIX seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
-                    "PREFIX swrl: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "	SELECT *\n" +
-                    "   WHERE { \n" +
-                    "		?k rdf:type ?<http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#ExpertiseBalance>.  \n" +
-                    "	}";
+            query = "    Prefix txt: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#>\n" +
+                    "    Prefix owl: <http://www.w3.org/2002/07/owl#/>\n" +
+                    "    Prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+                    "    Prefix xml: <http://www.w3.org/XML/1998/namespace>\n" +
+                    "    Prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+                    "    Prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                    "    Prefix seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
+                    "    Prefix swrl: <http://www.w3.org/2003/11/swrl#>\n" +
+                    "    Prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>\n" +
+                    "    Prefix swrlb: <http://www.w3.org/2003/11/swrlb#>\n" +
+                    "      SELECT *\n" +
+                    "      WHERE \n" +
+                    "	{?k rdf:type txt:ExpertiseBalance\n}";
 
 
 
@@ -243,7 +199,7 @@ public class OntoDAO {
                     QuerySolution linha = (QuerySolution) resultado.next();
                     model = new IndividualModel();
                     RDFNode subject = linha.get("k");
-                    model.setName(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
+                    model.setName(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#", ""));
                     Result.add(model);
                 }
                 return Result;
@@ -257,23 +213,25 @@ public class OntoDAO {
         IndividualModel model;
         InfModel seco = OntoConnection.OntoConnection();
         ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
+              
+              
         
         if(seco != null){
         
             String query;
-            query = "PREFIX xmlns: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "PREFIX base: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl>\n" +
-                    "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-                    "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
-                    "PREFIX xml: <http://www.w3.org/XML/1998/namespace>\n" +
-                    "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
-                    "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
-                    "PREFIX seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
-                    "PREFIX swrl: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "	SELECT *\n" +
-                    "   WHERE { \n" +
-                    "		?k rdf:type ?<http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#Visibility>.  \n" +
-                    "	}";
+            query = "    Prefix txt: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#>\n" +
+                    "    Prefix owl: <http://www.w3.org/2002/07/owl#/>\n" +
+                    "    Prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+                    "    Prefix xml: <http://www.w3.org/XML/1998/namespace>\n" +
+                    "    Prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+                    "    Prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                    "    Prefix seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
+                    "    Prefix swrl: <http://www.w3.org/2003/11/swrl#>\n" +
+                    "    Prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>\n" +
+                    "    Prefix swrlb: <http://www.w3.org/2003/11/swrlb#>\n" +
+                    "      SELECT *\n" +
+                    "      WHERE \n" +
+                    "	{?k rdf:type txt:Visibility\n}";
 
 
 
@@ -285,7 +243,7 @@ public class OntoDAO {
                     QuerySolution linha = (QuerySolution) resultado.next();
                     model = new IndividualModel();
                     RDFNode subject = linha.get("k");
-                    model.setName(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
+                    model.setName(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#", ""));
                     Result.add(model);
                 }
                 return Result;
@@ -299,23 +257,25 @@ public class OntoDAO {
         IndividualModel model;
         InfModel seco = OntoConnection.OntoConnection();
         ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
+              
+              
         
         if(seco != null){
         
             String query;
-            query = "PREFIX xmlns: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "PREFIX base: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl>\n" +
-                    "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-                    "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
-                    "PREFIX xml: <http://www.w3.org/XML/1998/namespace>\n" +
-                    "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
-                    "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
-                    "PREFIX seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
-                    "PREFIX swrl: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "	SELECT *\n" +
-                    "   WHERE { \n" +
-                    "		?k rdf:type ?<http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#Sustainability>.  \n" +
-                    "	}";
+            query = "    Prefix txt: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#>\n" +
+                    "    Prefix owl: <http://www.w3.org/2002/07/owl#/>\n" +
+                    "    Prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+                    "    Prefix xml: <http://www.w3.org/XML/1998/namespace>\n" +
+                    "    Prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+                    "    Prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                    "    Prefix seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
+                    "    Prefix swrl: <http://www.w3.org/2003/11/swrl#>\n" +
+                    "    Prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>\n" +
+                    "    Prefix swrlb: <http://www.w3.org/2003/11/swrlb#>\n" +
+                    "      SELECT *\n" +
+                    "      WHERE \n" +
+                    "	{?k rdf:type txt:Sustainability\n}";
 
 
 
@@ -327,7 +287,7 @@ public class OntoDAO {
                     QuerySolution linha = (QuerySolution) resultado.next();
                     model = new IndividualModel();
                     RDFNode subject = linha.get("k");
-                    model.setName(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
+                    model.setName(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#", ""));
                     Result.add(model);
                 }
                 return Result;
@@ -378,106 +338,42 @@ public class OntoDAO {
         }
     }
     
-    public static ArrayList<PlatformModel> returnProductivity(){
+    public static ArrayList<IndividualModel> returnProductivity(){
         
-        PlatformModel model;
+        IndividualModel model;
         InfModel seco = OntoConnection.OntoConnection();
-        ArrayList<PlatformModel> Result = new ArrayList<PlatformModel>();
-        String trata;
+        ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
+              
+              
         
         if(seco != null){
         
             String query;
-            query = "PREFIX xmlns: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "PREFIX base: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl>\n" +
-                    "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-                    "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
-                    "PREFIX xml: <http://www.w3.org/XML/1998/namespace>\n" +
-                    "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
-                    "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
-                    "PREFIX seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
-                    "PREFIX swrl: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "	SELECT *\n" +
-                    "                    	WHERE { \n" +
-                    "		?k swrl:addedKLOC ?x.\n" +
-                    "		?k swrl:hasFile ?j.\n" +
-                    "		?j swrl:createData ?c.\n" +
-                    "		?k swrl:totalTransmittedMessages ?t.\n" +
-                    "		?k swrl:hasProject ?y. \n" +
-                    "		?y swrl:StartData ?s.\n" +
-                    "		?k swrl:bugFixTime ?f.\n" +
-                    "		?k swrl:numberOfUsers ?l.\n" +
-                    "		?k swrl:averageTimeUse ?m.\n" +
-                    "		?k swrl:hasNewMember ?n.\n" +
-                    "           ?k swrl:hasEvent ?e.\n"+
-                    "           ?e swrl:occurredDate ?o \n"+
-                    "		\n" +
-                    "	}";
+            query = "    Prefix txt: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#>\n" +
+                    "    Prefix owl: <http://www.w3.org/2002/07/owl#/>\n" +
+                    "    Prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+                    "    Prefix xml: <http://www.w3.org/XML/1998/namespace>\n" +
+                    "    Prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+                    "    Prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                    "    Prefix seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
+                    "    Prefix swrl: <http://www.w3.org/2003/11/swrl#>\n" +
+                    "    Prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>\n" +
+                    "    Prefix swrlb: <http://www.w3.org/2003/11/swrlb#>\n" +
+                    "      SELECT *\n" +
+                    "      WHERE \n" +
+                    "	{?k rdf:type txt:Productivity\n}";
+
+
+
                     Dataset dataset = DatasetFactory.create(seco);
                     Query consulta = QueryFactory.create(query);
                     QueryExecution qexec = QueryExecutionFactory.create(consulta,dataset);
                     ResultSet resultado = qexec.execSelect();
                 while(resultado.hasNext()) {
-                    trata = "";
                     QuerySolution linha = (QuerySolution) resultado.next();
-                    model = new PlatformModel();
+                    model = new IndividualModel();
                     RDFNode subject = linha.get("k");
-                    model.setName(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("x");
-                    trata = subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", "");
-                    //System.out.println(trata);
-                    trata = trata.replace("^^","");
-                    trata = trata.replace("\"","");
-                    trata = trata.replace("<","");
-                    trata = trata.replace(">","");
-                    trata = trata.replace("http://www.w3.org/2001/XMLSchema#int","");
-                    model.setKLOC(Integer.parseInt(trata));
-                    subject = linha.get("j");
-                    model.setFileName(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("c");
-                    model.setCreationData(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("t");
-                    trata = subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", "");
-                    trata = trata.replace("^^","");
-                    trata = trata.replace("\"","");
-                    trata = trata.replace("<","");
-                    trata = trata.replace(">","");
-                    trata = trata.replace("http://www.w3.org/2001/XMLSchema#int","");
-                    model.setNumMessages(Integer.parseInt(trata));
-                    subject = linha.get("y");
-                    model.setProjectName(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("s");
-                    model.setStarData(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("f");
-                    trata = subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", "");
-                    trata = trata.replace("^^","");
-                    trata = trata.replace("\"","");
-                    trata = trata.replace("<","");
-                    trata = trata.replace(">","");
-                    trata = trata.replace("http://www.w3.org/2001/XMLSchema#int","");
-                    model.setBugFixTime(Integer.parseInt(trata));
-                    subject = linha.get("l");
-                    trata = subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", "");
-                    trata = trata.replace("^^","");
-                    trata = trata.replace("\"","");
-                    trata = trata.replace("<","");
-                    trata = trata.replace(">","");
-                    trata = trata.replace("http://www.w3.org/2001/XMLSchema#int","");
-                    model.setNumberOfUser(Integer.parseInt(trata));
-                    subject = linha.get("m");
-                    trata = subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", "");
-                    trata = trata.replace("^^","");
-                    trata = trata.replace("\"","");
-                    trata = trata.replace("<","");
-                    trata = trata.replace(">","");
-                    trata = trata.replace("http://www.w3.org/2001/XMLSchema#int","");
-                    model.setAverageTimeUse(Integer.parseInt(trata));
-                    subject = linha.get("n");
-                    model.setNewMemberName(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("e");
-                    model.setEventName(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("o");
-                    model.setOccurredDate(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
+                    model.setName(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#", ""));
                     Result.add(model);
                 }
                 return Result;
@@ -486,39 +382,30 @@ public class OntoDAO {
         }
     }
     
-    public static ArrayList<PlatformModel> returnDiversity(){
+    public static ArrayList<IndividualModel> returnDiversity(){
         
-        PlatformModel model;
+        IndividualModel model;
         InfModel seco = OntoConnection.OntoConnection();
-        ArrayList<PlatformModel> Result = new ArrayList<PlatformModel>();
-        String trata;
+        ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
+              
+              
         
         if(seco != null){
         
             String query;
-            query = "PREFIX xmlns: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "PREFIX base: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl>\n" +
-                    "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-                    "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
-                    "PREFIX xml: <http://www.w3.org/XML/1998/namespace>\n" +
-                    "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
-                    "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
-                    "PREFIX seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
-                    "PREFIX swrl: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-                    "	SELECT *\n" +
-                    "                    	WHERE { \n" +
-                    "		\n" +
-                    "		?k swrl:hasRunIn ?x.\n" +
-                    "		?k swrl:hasRunIn ?w.\n" +
-                    "		?k swrl:numberOfUsersGroups ?d.\n" +
-                    "		?k seco:isDevelopedOf ?y.\n" +
-                    "		?k seco:isDevelopedOf ?z.\n" +
-                    "		?k swrl:hasSupportDevTech ?a.\n" +
-                    "		?k swrl:hasSupportDevTech ?b.\n" +
-                    "		?k swrl:existePlanForCollapse ?p\n" +
-                    "		FILTER(?x != ?w && ?y != ?z && ?a != ?b)\n" +
-                    "			\n" +
-                    "	}";
+            query = "    Prefix txt: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#>\n" +
+                    "    Prefix owl: <http://www.w3.org/2002/07/owl#/>\n" +
+                    "    Prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+                    "    Prefix xml: <http://www.w3.org/XML/1998/namespace>\n" +
+                    "    Prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+                    "    Prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                    "    Prefix seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
+                    "    Prefix swrl: <http://www.w3.org/2003/11/swrl#>\n" +
+                    "    Prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>\n" +
+                    "    Prefix swrlb: <http://www.w3.org/2003/11/swrlb#>\n" +
+                    "      SELECT *\n" +
+                    "      WHERE \n" +
+                    "	{?k rdf:type txt:Diversity\n}";
 
 
 
@@ -527,39 +414,10 @@ public class OntoDAO {
                     QueryExecution qexec = QueryExecutionFactory.create(consulta,dataset);
                     ResultSet resultado = qexec.execSelect();
                 while(resultado.hasNext()) {
-                    trata = "";
                     QuerySolution linha = (QuerySolution) resultado.next();
-                    model = new PlatformModel();
+                    model = new IndividualModel();
                     RDFNode subject = linha.get("k");
-                    model.setName(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("x");
-                    model.setNameHardwareSupport1(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("w");
-                    model.setNameHardwareSupport2(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("d");
-                    trata = subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", "");
-                    trata = trata.replace("^^","");
-                    trata = trata.replace("\"","");
-                    trata = trata.replace("<","");
-                    trata = trata.replace(">","");
-                    trata = trata.replace("http://www.w3.org/2001/XMLSchema#int","");
-                    model.setNumberOfUsersGroups(Integer.parseInt(trata));
-                    subject = linha.get("y");
-                    model.setNameDeveloper1(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("z");
-                    model.setNameDeveloper2(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("a");
-                    model.setTechName1(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("b");
-                    model.setTechName2(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("p");
-                    trata = subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", "");
-                    trata = trata.replace("^^","");
-                    trata = trata.replace("\"","");
-                    trata = trata.replace("<","");
-                    trata = trata.replace(">","");
-                    trata = trata.replace("http://www.w3.org/2001/XMLSchema#boolean","");
-                    model.setPlanForCollapse(trata);
+                    model.setName(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#", ""));
                     Result.add(model);
                 }
                 return Result;
@@ -568,39 +426,30 @@ public class OntoDAO {
         }
     }
     
-    public static ArrayList<PlatformModel> returnNicheCreation(){
+    public static ArrayList<IndividualModel> returnNicheCreation(){
         
-        PlatformModel model;
+        IndividualModel model;
         InfModel seco = OntoConnection.OntoConnection();
-        ArrayList<PlatformModel> Result = new ArrayList<PlatformModel>();
-        String trata;
+        ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
+              
+              
         
         if(seco != null){
         
             String query;
-            query = "PREFIX xmlns: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-            "PREFIX base: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl>\n" +
-            "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-            "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n" +
-            "PREFIX xml: <http://www.w3.org/XML/1998/namespace>\n" +
-            "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
-            "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
-            "PREFIX seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
-            "PREFIX swrl: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-4.owl#>\n" +
-            "	SELECT *\n" +
-            "                    	WHERE { \n" +
-            "		?k seco:hasSuport ?x.\n" +
-            "		?k seco:hasSuport ?y.\n" +
-            "		?k swrl:supportNaturalLanguages ?l.\n" +
-            "		?k swrl:hasSupportDevTech ?h.\n" +
-            "		?k swrl:hasSupportDevTech ?m.\n" +
-            "		?k seco:isDevelopedOf ?i.\n" +
-            "		?k seco:isDevelopedOf ?j.\n" +
-            "		?k swrl:hasSupportTech ?b.\n" +
-            "		?k swrl:hasSupportTech ?c.\n" +
-            "		?k swrl:haveDocumentation ?s\n" +
-            "		FILTER(?x != ?y && ?h != ?m && ?i != ?j && ?b != ?c)\n" +
-            "	}";
+            query = "    Prefix txt: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#>\n" +
+                    "    Prefix owl: <http://www.w3.org/2002/07/owl#/>\n" +
+                    "    Prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+                    "    Prefix xml: <http://www.w3.org/XML/1998/namespace>\n" +
+                    "    Prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+                    "    Prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                    "    Prefix seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
+                    "    Prefix swrl: <http://www.w3.org/2003/11/swrl#>\n" +
+                    "    Prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>\n" +
+                    "    Prefix swrlb: <http://www.w3.org/2003/11/swrlb#>\n" +
+                    "      SELECT *\n" +
+                    "      WHERE \n" +
+                    "	{?k rdf:type txt:NicheCreate\n}";
 
 
 
@@ -609,49 +458,207 @@ public class OntoDAO {
                     QueryExecution qexec = QueryExecutionFactory.create(consulta,dataset);
                     ResultSet resultado = qexec.execSelect();
                 while(resultado.hasNext()) {
-                    trata = "";
                     QuerySolution linha = (QuerySolution) resultado.next();
-                    model = new PlatformModel();
+                    model = new IndividualModel();
                     RDFNode subject = linha.get("k");
-                    model.setName(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("x");
-                    model.setNameSupport1(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("y");
-                    model.setNameSupport2(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("l");
-                    trata = subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", "");
-                    trata = trata.replace("^^","");
-                    trata = trata.replace("\"","");
-                    trata = trata.replace("<","");
-                    trata = trata.replace(">","");
-                    trata = trata.replace("http://www.w3.org/2001/XMLSchema#boolean","");
-                    model.setSupportNaturalLanguages(trata);
-                    subject = linha.get("h");
-                    model.setNameDevTech1(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("m");
-                    model.setNameDevTech2(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("i");
-                    model.setNameDeveloper1(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("j");
-                    model.setNameDevTech2(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("b");
-                    model.setTechName1(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("c");
-                    model.setTechName2(subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", ""));
-                    subject = linha.get("s");
-                    trata = subject.toString().replace("http://www.seco.com/ontoloy/seco.owl#", "");
-                    trata = trata.replace("^^","");
-                    trata = trata.replace("\"","");
-                    trata = trata.replace("<","");
-                    trata = trata.replace(">","");
-                    trata = trata.replace("http://www.w3.org/2001/XMLSchema#boolean","");
-                    model.setHaveDocumentation(trata);
+                    model.setName(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#", ""));
                     Result.add(model);
                 }
                 return Result;
         }else{
             return null;
         }
+    }
+    
+    public static ArrayList<IndividualModel> returnInformationConsistence(){
+        
+        IndividualModel model;
+        InfModel seco = OntoConnection.OntoConnection();
+        ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
+              
+              
+        
+        if(seco != null){
+        
+            String query;
+            query = "    Prefix txt: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#>\n" +
+                    "    Prefix owl: <http://www.w3.org/2002/07/owl#/>\n" +
+                    "    Prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+                    "    Prefix xml: <http://www.w3.org/XML/1998/namespace>\n" +
+                    "    Prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+                    "    Prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                    "    Prefix seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
+                    "    Prefix swrl: <http://www.w3.org/2003/11/swrl#>\n" +
+                    "    Prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>\n" +
+                    "    Prefix swrlb: <http://www.w3.org/2003/11/swrlb#>\n" +
+                    "      SELECT *\n" +
+                    "      WHERE \n" +
+                    "	{?k rdf:type txt:InformationConsistence\n}";
+
+
+
+                    Dataset dataset = DatasetFactory.create(seco);
+                    Query consulta = QueryFactory.create(query);
+                    QueryExecution qexec = QueryExecutionFactory.create(consulta,dataset);
+                    ResultSet resultado = qexec.execSelect();
+                while(resultado.hasNext()) {
+                    QuerySolution linha = (QuerySolution) resultado.next();
+                    model = new IndividualModel();
+                    RDFNode subject = linha.get("k");
+                    model.setName(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#", ""));
+                    Result.add(model);
+                }
+                return Result;
+        }else{
+            return null;
+        }
+    }
+    
+    public static ArrayList<IndividualModel> returnInterrelatedness(){
+        
+        IndividualModel model;
+        InfModel seco = OntoConnection.OntoConnection();
+        ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
+              
+              
+        
+        if(seco != null){
+        
+            String query;
+            query = "    Prefix txt: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#>\n" +
+                    "    Prefix owl: <http://www.w3.org/2002/07/owl#/>\n" +
+                    "    Prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+                    "    Prefix xml: <http://www.w3.org/XML/1998/namespace>\n" +
+                    "    Prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+                    "    Prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                    "    Prefix seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
+                    "    Prefix swrl: <http://www.w3.org/2003/11/swrl#>\n" +
+                    "    Prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>\n" +
+                    "    Prefix swrlb: <http://www.w3.org/2003/11/swrlb#>\n" +
+                    "      SELECT *\n" +
+                    "      WHERE \n" +
+                    "	{?k rdf:type txt:Interrelatedness\n}";
+
+
+
+                    Dataset dataset = DatasetFactory.create(seco);
+                    Query consulta = QueryFactory.create(query);
+                    QueryExecution qexec = QueryExecutionFactory.create(consulta,dataset);
+                    ResultSet resultado = qexec.execSelect();
+                while(resultado.hasNext()) {
+                    QuerySolution linha = (QuerySolution) resultado.next();
+                    model = new IndividualModel();
+                    RDFNode subject = linha.get("k");
+                    model.setName(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#", ""));
+                    Result.add(model);
+                }
+                return Result;
+        }else{
+            return null;
+        }
+    }
+    
+    public static ArrayList<IndividualModel> returnClustering(){
+        
+        IndividualModel model;
+        InfModel seco = OntoConnection.OntoConnection();
+        ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
+              
+              
+        
+        if(seco != null){
+        
+            String query;
+            query = "    Prefix txt: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#>\n" +
+                    "    Prefix owl: <http://www.w3.org/2002/07/owl#/>\n" +
+                    "    Prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+                    "    Prefix xml: <http://www.w3.org/XML/1998/namespace>\n" +
+                    "    Prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+                    "    Prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                    "    Prefix seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
+                    "    Prefix swrl: <http://www.w3.org/2003/11/swrl#>\n" +
+                    "    Prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>\n" +
+                    "    Prefix swrlb: <http://www.w3.org/2003/11/swrlb#>\n" +
+                    "      SELECT *\n" +
+                    "      WHERE \n" +
+                    "	{?k rdf:type txt:Clustering\n}";
+
+
+
+                    Dataset dataset = DatasetFactory.create(seco);
+                    Query consulta = QueryFactory.create(query);
+                    QueryExecution qexec = QueryExecutionFactory.create(consulta,dataset);
+                    ResultSet resultado = qexec.execSelect();
+                while(resultado.hasNext()) {
+                    QuerySolution linha = (QuerySolution) resultado.next();
+                    model = new IndividualModel();
+                    RDFNode subject = linha.get("k");
+                    model.setName(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#", ""));
+                    Result.add(model);
+                }
+                return Result;
+        }else{
+            return null;
+        }
+    }
+    
+    public static ArrayList<IndividualModel> returnFinancialConsistence(){
+        
+        IndividualModel model;
+        InfModel seco = OntoConnection.OntoConnection();
+        ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
+              
+              
+        
+        if(seco != null){
+        
+            String query;
+            query = "    Prefix txt: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#>\n" +
+                    "    Prefix owl: <http://www.w3.org/2002/07/owl#/>\n" +
+                    "    Prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+                    "    Prefix xml: <http://www.w3.org/XML/1998/namespace>\n" +
+                    "    Prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+                    "    Prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                    "    Prefix seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
+                    "    Prefix swrl: <http://www.w3.org/2003/11/swrl#>\n" +
+                    "    Prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>\n" +
+                    "    Prefix swrlb: <http://www.w3.org/2003/11/swrlb#>\n" +
+                    "      SELECT *\n" +
+                    "      WHERE \n" +
+                    "	{?k rdf:type txt:FinancialConsistence\n}";
+
+
+
+                    Dataset dataset = DatasetFactory.create(seco);
+                    Query consulta = QueryFactory.create(query);
+                    QueryExecution qexec = QueryExecutionFactory.create(consulta,dataset);
+                    ResultSet resultado = qexec.execSelect();
+                while(resultado.hasNext()) {
+                    QuerySolution linha = (QuerySolution) resultado.next();
+                    model = new IndividualModel();
+                    RDFNode subject = linha.get("k");
+                    model.setName(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#", ""));
+                    Result.add(model);
+                }
+                return Result;
+        }else{
+            return null;
+        }
+    }
+    
+    public static void salvaIndividuos(IndividualModel platform, IndividualModel parameter){
+        
+        OntModel seco = OntoConnection.OntoConnectionSInferencia();
+        Resource plat = seco.getResource("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#Platform");
+        Resource par = seco.getResource("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#Parameter");
+        seco.createIndividual(platform.getName(), plat);
+        seco.createIndividual(parameter.getName(), par);
+        //Individual p = seco.getIndividual("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#"+platform.getName());
+        //Individual pa = seco.getIndividual("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#"+parameter.getName());
+        //ObjectProperty hasParameter = seco.getObjectProperty("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#hasParameter");
+        //p.addProperty(hasParameter, pa);
+        
+        OntoConnection.gravaOnto(seco);
     }
     
 }
