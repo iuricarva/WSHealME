@@ -53,7 +53,7 @@ public class WSSeco {
     @GET
     @Produces(MediaType.APPLICATION_XML)
     @Path("getregenerationability")
-    public List<PlatformModel> getRegenerationAbility() {
+    public List<IndividualModel> getRegenerationAbility() {
         
         return OntoController.returnRegenerationAbility();
         
@@ -62,7 +62,7 @@ public class WSSeco {
     @GET
     @Produces(MediaType.APPLICATION_XML)
     @Path("geteffortbalance")
-    public List<PlatformModel> getEffortBalance() {
+    public List<IndividualModel> getEffortBalance() {
         
         return OntoController.returnEffortBalance();
         
@@ -108,7 +108,7 @@ public class WSSeco {
     @GET
     @Produces(MediaType.APPLICATION_XML)
     @Path("getproductivity")
-    public List<PlatformModel> getProductivity() {
+    public List<IndividualModel> getProductivity() {
         
         return OntoController.returnProductivity();
         
@@ -117,7 +117,7 @@ public class WSSeco {
     @GET
     @Produces(MediaType.APPLICATION_XML)
     @Path("getdiversity")
-    public List<PlatformModel> getDiversity() {
+    public List<IndividualModel> getDiversity() {
         
         return OntoController.returnDiversity();
         
@@ -126,18 +126,53 @@ public class WSSeco {
     @GET
     @Produces(MediaType.APPLICATION_XML)
     @Path("getnichecreation")
-    public List<PlatformModel> getNicheCreation() {
+    public List<IndividualModel> getNicheCreation() {
         
         return OntoController.returnNicheCreation();
         
     }
     
     @GET
-    @Path("/{parameter}/{parameter2}")
+    @Path("/insertplatform/{platform}/{parameter}")
     @Produces(MediaType.APPLICATION_XML)
-    public void getTeste(@PathParam("parameter")String parameter, @PathParam("parameter2")String parameterteste) {
-        System.out.println(parameter);        
-        System.out.println(parameterteste);
+    public void getTeste(@PathParam("platform")String platfomr, @PathParam("parameter")String parameter) {
+        OntoController.salvaIndividuos(platfomr, parameter);
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    @Path("getinformationconsistence")
+    public List<IndividualModel> getInformationConsistencce() {
+        
+        return OntoController.returnInformationConsistence();
+        
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    @Path("getinterrelatedness")
+    public List<IndividualModel> getInterrelatedness() {
+        
+        return OntoController.returnInterrelatedness();
+        
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    @Path("getclustering")
+    public List<IndividualModel> getClustering() {
+        
+        return OntoController.returnClustering();
+        
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    @Path("getfinancialconsistence")
+    public List<IndividualModel> getFinancialConsistence() {
+        
+        return OntoController.returnFinancialConsistence();
+        
     }
 
     /**
