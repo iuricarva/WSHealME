@@ -5,10 +5,12 @@
  */
 package Util;
 
+import Model.IndividualModel;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.reasoner.Reasoner;
 import com.hp.hpl.jena.shared.JenaException;
 import com.hp.hpl.jena.util.FileManager;
@@ -42,7 +44,7 @@ public class OntoConnection {
             InfModel infmodel = ModelFactory.createInfModel(reasoner,seco);
             infmodel.prepare();
             
-            /*-----------------------------*/
+            /*-----------------------------
             FileWriter arquivo = null;
             try {
             //caminho para o novo arquivo de ontologia
@@ -54,19 +56,58 @@ public class OntoConnection {
             //determinando que o fluxo de saida vai para o arquivo e não para a tela            
             BufferedWriter out = new BufferedWriter(arquivo);
             infmodel.write(out);
-            /*-----------------------------*/
-            
-            
-            
-            
+            -----------------------------*/
+                  
             return infmodel;
         } catch (JenaException je) {
             System.out.println("ERROR" + je.getMessage());
             je.printStackTrace();
-            System.exit(0);
         }
         
         return null;
+    }
+    
+    public static OntModel OntoConnectionSInferencia(){
+        
+        String f = "c:\\seco6\\seco6.owl";        
+        OntModelSpec especRacioc = OntModelSpec.OWL_DL_MEM; 
+        OntModel seco = ModelFactory.createOntologyModel(especRacioc);
+        
+        try {
+            InputStream in = FileManager.get().open(f);
+            seco.read(in,null);
+            return seco;
+        } catch (JenaException je) {
+            System.out.println("ERROR" + je.getMessage());
+            je.printStackTrace();
+        }
+        
+        return null;
+    }
+    
+    public static void gravaOnto(OntModel seco){
+        
+        String f = "c:\\seco6\\seco6.owl";
+        OntModelSpec especRacioc = OntModelSpec.OWL_DL_MEM; 
+        seco = ModelFactory.createOntologyModel(especRacioc, seco);        
+                
+        try {
+                      
+            FileWriter arquivo = null;
+            try {
+            //caminho para o novo arquivo de ontologia
+                arquivo = new FileWriter(f);
+            //se não existir arquivo, o mesmo será criado, se não, será reescrito
+            } catch (IOException ex) {
+                ex.printStackTrace(); //verificando problemas
+            }
+            //determinando que o fluxo de saida vai para o arquivo e não para a tela            
+            BufferedWriter out = new BufferedWriter(arquivo);
+            seco.write(out);
+        } catch (JenaException je) {
+            System.out.println("ERROR" + je.getMessage());
+            je.printStackTrace();
+        }
     }
     
     

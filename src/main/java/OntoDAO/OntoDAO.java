@@ -649,14 +649,16 @@ public class OntoDAO {
     public static void salvaIndividuos(IndividualModel platform, IndividualModel parameter){
         
         OntModel seco = OntoConnection.OntoConnectionSInferencia();
-        Resource plat = seco.getResource("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#Platform");
+        Resource plat = seco.getResource("http://www.seco.com/ontoloy/seco.owl#Platform");
         Resource par = seco.getResource("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#Parameter");
         seco.createIndividual(platform.getName(), plat);
         seco.createIndividual(parameter.getName(), par);
         //Individual p = seco.getIndividual("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#"+platform.getName());
+         Individual p = seco.getIndividual("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#Android");
         //Individual pa = seco.getIndividual("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#"+parameter.getName());
-        //ObjectProperty hasParameter = seco.getObjectProperty("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#hasParameter");
-        //p.addProperty(hasParameter, pa);
+        Individual pa = seco.getIndividual("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#par");
+        ObjectProperty hasParameter = seco.getObjectProperty("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#hasParameter");
+        p.addProperty(hasParameter, pa);
         
         OntoConnection.gravaOnto(seco);
     }

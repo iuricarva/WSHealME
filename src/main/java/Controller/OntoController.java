@@ -18,14 +18,15 @@ public class OntoController {
     
         
     public static ArrayList<IndividualModel> returnHeterogeneity(){
+        //return OntoDAO.returnHeterogeneity();
         return OntoDAO.returnHeterogeneity();
     }
     
-    public static ArrayList<PlatformModel> returnRegenerationAbility(){
+    public static ArrayList<IndividualModel> returnRegenerationAbility(){
         return OntoDAO.returnRegenerationAbility();
     }
     
-    public static ArrayList<PlatformModel> returnEffortBalance(){
+    public static ArrayList<IndividualModel> returnEffortBalance(){
         return OntoDAO.returnEffortBalance();
     }
     
@@ -45,20 +46,40 @@ public class OntoController {
         return OntoDAO.returnHealth();
     }
     
-    public static ArrayList<PlatformModel> returnProductivity(){
+    public static ArrayList<IndividualModel> returnProductivity(){
         return OntoDAO.returnProductivity();
     }
     
-    public static ArrayList<PlatformModel> returnDiversity(){
+    public static ArrayList<IndividualModel> returnDiversity(){
         return OntoDAO.returnDiversity();
     }
     
-     public static ArrayList<PlatformModel> returnNicheCreation(){
+    public static ArrayList<IndividualModel> returnNicheCreation(){
         return OntoDAO.returnNicheCreation();
     }
+    
+    public static ArrayList<IndividualModel> returnInformationConsistence(){
+        return OntoDAO.returnInformationConsistence();
+    }
+    
+    public static ArrayList<IndividualModel> returnInterrelatedness(){
+        return OntoDAO.returnInterrelatedness();
+    }
+    
+    public static ArrayList<IndividualModel> returnClustering(){
+        return OntoDAO.returnClustering();
+    }
+    
+    public static ArrayList<IndividualModel> returnFinancialConsistence(){
+        return OntoDAO.returnFinancialConsistence();
+    }
      
-     public static void setPlatform(){
-         
-     }
+    public static void salvaIndividuos(String platform, String parameter){
+        IndividualModel plat = new IndividualModel();
+        IndividualModel par = new IndividualModel();
+        plat.setName(platform);
+        par.setName(parameter);
+        OntoDAO.salvaIndividuos(plat, par);
+    }
     
 }
