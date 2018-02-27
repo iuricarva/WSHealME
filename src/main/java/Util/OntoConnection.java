@@ -31,13 +31,13 @@ public class OntoConnection {
     
     public static InfModel OntoConnection(){
         
-        String f = "C:\\Seco 6\\Seco 6.owl";        
+        String f = "C:\\seco6\\seco6.owl";        
         OntModelSpec especRacioc = OntModelSpec.OWL_DL_MEM; 
         OntModel seco = ModelFactory.createOntologyModel(especRacioc, null);
         
         try {
             InputStream in = FileManager.get().open(f);
-            seco.read(in, "RDF/XML");
+            seco.read(in, null);
             Reasoner reasoner = (Reasoner) PelletReasonerFactory.theInstance().create();
             //Reasoner reasoner = ReasonerRegistry.getOWLReasoner();
             reasoner = reasoner.bindSchema(seco);
@@ -75,7 +75,7 @@ public class OntoConnection {
         
         try {
             InputStream in = FileManager.get().open(f);
-            seco.read(in,null);
+            seco.read(in, null);
             return seco;
         } catch (JenaException je) {
             System.out.println("ERROR" + je.getMessage());
