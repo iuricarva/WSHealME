@@ -31,7 +31,50 @@ import java.util.ArrayList;
  */
 public class OntoDAO {
     
-          
+    public static ArrayList<IndividualModel> returnPlatforms(){
+        
+        IndividualModel model;
+        InfModel seco = OntoConnection.OntoConnectionSInferencia();
+        ArrayList<IndividualModel> Result = new ArrayList<IndividualModel>();
+              
+              
+        
+        if(seco != null){
+        
+            String query;
+            query = "    Prefix txt: <http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#>\n" +
+                    "    Prefix owl: <http://www.w3.org/2002/07/owl#/>\n" +
+                    "    Prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
+                    "    Prefix xml: <http://www.w3.org/XML/1998/namespace>\n" +
+                    "    Prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n" +
+                    "    Prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                    "    Prefix seco: <http://www.seco.com/ontoloy/seco.owl#>\n" +
+                    "    Prefix swrl: <http://www.w3.org/2003/11/swrl#>\n" +
+                    "    Prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#>\n" +
+                    "    Prefix swrlb: <http://www.w3.org/2003/11/swrlb#>\n" +
+                    "      SELECT *\n" +
+                    "      WHERE \n" +
+                    "	{?k rdf:type seco:Platform\n}";
+
+
+
+                    Dataset dataset = DatasetFactory.create(seco);
+                    Query consulta = QueryFactory.create(query);
+                    QueryExecution qexec = QueryExecutionFactory.create(consulta,dataset);
+                    ResultSet resultado = qexec.execSelect();
+                while(resultado.hasNext()) {
+                    QuerySolution linha = (QuerySolution) resultado.next();
+                    model = new IndividualModel();
+                    RDFNode subject = linha.get("k");
+                    model.setName(subject.toString().replace("http://www.semanticweb.org/icarv/ontologies/2016/7/seco-6.owl#", ""));
+                    Result.add(model);
+                }
+                return Result;
+        }else{
+            return null;
+        }
+    }      
+    
     public static ArrayList<IndividualModel> returnHeterogeneity(){
         
         IndividualModel model;
