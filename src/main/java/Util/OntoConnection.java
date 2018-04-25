@@ -89,7 +89,7 @@ public class OntoConnection {
         
         String f = "c:\\seco6\\seco6.owl";
         OntModelSpec especRacioc = OntModelSpec.OWL_DL_MEM; 
-        seco = ModelFactory.createOntologyModel(especRacioc, seco);        
+        //seco = ModelFactory.createOntologyModel(especRacioc, seco);        
                 
         try {
                       
@@ -103,7 +103,8 @@ public class OntoConnection {
             }
             //determinando que o fluxo de saida vai para o arquivo e não para a tela            
             BufferedWriter out = new BufferedWriter(arquivo);
-            seco.write(out);
+            
+            seco.write(out, "RDF/XML-ABBREV");
         } catch (JenaException je) {
             System.out.println("ERROR" + je.getMessage());
             je.printStackTrace();

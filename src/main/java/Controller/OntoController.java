@@ -16,6 +16,10 @@ import java.util.ArrayList;
  */
 public class OntoController {
     
+    public static ArrayList<PlatformModel> returnData(){
+        return OntoDAO.returnData();
+    }
+    
     public static ArrayList<IndividualModel> returnPlatforms(){
         return OntoDAO.returnPlatforms();
     }    

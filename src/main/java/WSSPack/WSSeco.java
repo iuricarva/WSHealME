@@ -43,6 +43,13 @@ public class WSSeco {
         
     @GET
     @Produces(MediaType.APPLICATION_XML)
+    @Path("getdata")
+    public static List<PlatformModel> returnData(){
+        return OntoController.returnData();
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
     @Path("getplatforms")
     public List<IndividualModel> getPlatforms() {
         
