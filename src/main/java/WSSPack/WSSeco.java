@@ -43,9 +43,86 @@ public class WSSeco {
         
     @GET
     @Produces(MediaType.APPLICATION_XML)
-    @Path("getdata")
-    public static List<PlatformModel> returnData(){
-        return OntoController.returnData();
+    @Path("getdatahet")
+    public static List<PlatformModel> returnDatHet(){
+        return OntoController.returnDataHet();
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    @Path("getdataregab")
+    public static List<PlatformModel> returnDataRegAb(){
+        return OntoController.returnDataRegAb();
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    @Path("getdataeffbal")
+    public static List<PlatformModel> returnDataEffBal(){
+        return OntoController.returnDataEffBal();
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    @Path("getdataexbal")
+    public static List<PlatformModel> returnDataExBal(){
+        return OntoController.returnDataExpBal();
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    @Path("getdatavis")
+    public static List<PlatformModel> returnDataVis(){
+        return OntoController.returnDataVis();
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    @Path("getdatadiv")
+    public static List<PlatformModel> returnDataDiv(){
+        return OntoController.returnDataDiv();
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    @Path("getdataprod")
+    public static List<PlatformModel> returnDataProd(){
+        return OntoController.returnDataProd();
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    @Path("getdatainterr")
+    public static List<PlatformModel> returnDataInterr(){
+        return OntoController.returnDataInterr();
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    @Path("getdatainfocons")
+    public static List<PlatformModel> returnDataInfoCons(){
+        return OntoController.returnDataInfoCons();
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    @Path("getdataclust")
+    public static List<PlatformModel> returnDataClust(){
+        return OntoController.returnDataClust();
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    @Path("getdatafincons")
+    public static List<PlatformModel> returnDataFinCons(){
+        return OntoController.returnDataFinCons();
+    }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    @Path("getdatanichecrea")
+    public static List<PlatformModel> returnDataNicheCrea(){
+        return OntoController.returnDataNicheCrea();
     }
     
     @GET

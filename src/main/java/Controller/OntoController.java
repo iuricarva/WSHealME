@@ -16,8 +16,52 @@ import java.util.ArrayList;
  */
 public class OntoController {
     
-    public static ArrayList<PlatformModel> returnData(){
-        return OntoDAO.returnData();
+    public static ArrayList<PlatformModel> returnDataHet(){
+        return OntoDAO.returnDataHet();
+    }
+    
+    public static ArrayList<PlatformModel> returnDataRegAb(){
+        return OntoDAO.returnDataRegAb();
+    }
+    
+    public static ArrayList<PlatformModel> returnDataEffBal(){
+        return OntoDAO.returnDataEffBal();
+    }
+    
+     public static ArrayList<PlatformModel> returnDataExpBal(){
+        return OntoDAO.returnDataExBal();
+    }
+    
+    public static ArrayList<PlatformModel> returnDataVis(){
+        return OntoDAO.returnDataVis();
+    }
+    
+    public static ArrayList<PlatformModel> returnDataDiv(){
+        return OntoDAO.returnDataDiv();
+    }
+    
+     public static ArrayList<PlatformModel> returnDataProd(){
+        return OntoDAO.returnDataProd();
+    }
+    
+    public static ArrayList<PlatformModel> returnDataInterr(){
+        return OntoDAO.returnDataInterr();
+    }
+    
+    public static ArrayList<PlatformModel> returnDataInfoCons(){
+        return OntoDAO.returnDataInfoCons();
+    }
+    
+     public static ArrayList<PlatformModel> returnDataClust(){
+        return OntoDAO.returnDataClust();
+    }
+    
+    public static ArrayList<PlatformModel> returnDataFinCons(){
+        return OntoDAO.returnDataFinCons();
+    }
+    
+    public static ArrayList<PlatformModel> returnDataNicheCrea(){
+        return OntoDAO.returnDataNicheCrea();
     }
     
     public static ArrayList<IndividualModel> returnPlatforms(){
