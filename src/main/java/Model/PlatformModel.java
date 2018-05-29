@@ -12,7 +12,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author icarv
  */
 @XmlRootElement
-public class PlatformModel {
+public class PlatformModel { 
+    private int id;
     private String name;
     private int numberOfCountries;
     private int semanticClosenessAvg;
@@ -52,11 +53,236 @@ public class PlatformModel {
     private int numberOfUsers;
     private int averageTimeUse;
     private int numberOfNodesConnections;
-    private int ConnectivityCapacity;
+    private int connectivityCapacity;
     private int ratioConnectionsCapacity;
     private int nodesCentrality;
     private int numberOfExternalPartners;
-    private String GlossaryOfTerms;
+    private String glossaryOfTerms;
+    private int numberOfProductTypes;
+    private int greaterCollaboration;
+    private int numberOfActiveProjects;
+    private int totalProducedFiles;
+    private int numberOfPartners;
+    private int numberOfCommercialSponsors;
+    private int totalContributionValue;
+    private int numberOfActiveContributors;
+    private int numberOfFrequentUsers;
+    private String haveDocumentation;
+    private int numberOfContributorsTypes;
+    private int numberOfTypesAppProjects;
+    private String supportNaturalLanguages;
+    private int numberOfTypesTechSupported;
+    private int numberOfTypesDevTechSupported;
+    
+    private int numberOfCountriesPar;
+    private int semanticClosenessAvgPar;
+    private int numberOfNodeTypesPar;
+    private int timeWorkTogetherPar;
+    private int numberOfNewMembersPar;
+    private int developerCommitsPar;
+    private int numberOfHoursWorkedPar;
+    private int activeMembersPar;
+    private int numberOfCommunitsPar;
+    private int numberOfReleasesPar;
+    private int totalEfforPar;
+    private int numberOfModifiedFilesPar;
+    private int numberModifiedFileTypesPar;
+    private int numberOfEventParticipantsPar;
+    private int numberOfEventProjectParticipantsPar;
+    private int numberOfJobAdvertisementsPar;
+    private int numberOfDownloadsPar;
+    private int numberOfMailingListMembersPar;
+    private int numberOfPassiveUsersPar;
+    private int numberOfReadersPar;
+    private int numberOfScientificPublicationPar;
+    private int numberOfSocialMediaHitsPar;
+    private int numberOfWebPageRequestsPar;
+    private int numberOfDevelopersPar;
+    private int numberOfUsersGroupsPar;
+    private int numberOfProgrammingLanguagesSupportedPar;
+    private int numberOfDifferentHardwareDevicesPar;
+    private String existPlanForCollapsePar;
+    private int numberOfProjectsAddedPar;
+    private int numberOfEventsPar;
+    private int addedKLOCPar;
+    private int numberOfArtifactsPar;
+    private int numberOfTransmittedMessagesPar;
+    private int bugFixTimePar;
+    private int numberOfPartnersAddedPar;
+    private int numberOfUsersPar;
+    private int averageTimeUsePar;
+    private int numberOfNodesConnectionsPar;
+    private int connectivityCapacityPar;
+    private int ratioConnectionsCapacityPar;
+    private int nodesCentralityPar;
+    private int numberOfExternalPartnersPar;
+    private String glossaryOfTermsPar;
+    private int numberOfProductTypesPar;
+    private int greaterCollaborationPar;
+    private int numberOfActiveProjectsPar;
+    private int totalProducedFilesPar;
+    private int numberOfPartnersPar;
+    private int numberOfCommercialSponsorsPar;
+    private int totalContributionValuePar;
+    private int numberOfActiveContributorsPar;
+    private int numberOfFrequentUsersPar;
+    private String haveDocumentationPar;
+    private int numberOfContributorsTypesPar;
+    private int numberOfTypesAppProjectsPar;
+    private String supportNaturalLanguagesPar;
+    private int numberOfTypesTechSupportedPar;
+    private int numberOfTypesDevTechSupportedPar;
+    
+    
+    private boolean heterogeneity;
+    private boolean regenerationAbility;
+    private boolean effortBalance;
+    private boolean expertiseBalance;
+    private boolean visibility;
+    private boolean sustainability;
+    private boolean diversity;
+    private boolean productivity;
+    private boolean interrelatedness;
+    private boolean informationConsistence;
+    private boolean clustering;
+    private boolean financialConsistence;
+    private boolean robustness;
+    private boolean nicheCreation;
+    private boolean health;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
+    
+    public boolean isHealth() {
+        return health;
+    }
+
+    public void setHealth(boolean Health) {
+        this.health = Health;
+    }
+    
+    
+
+    public boolean isHeterogeneity() {
+        return heterogeneity;
+    }
+
+    public void setHeterogeneity(boolean Heterogeneity) {
+        this.heterogeneity = Heterogeneity;
+    }
+
+    public boolean isRegenerationAbility() {
+        return regenerationAbility;
+    }
+
+    public void setRegenerationAbility(boolean RegenerationAbility) {
+        this.regenerationAbility = RegenerationAbility;
+    }
+
+    public boolean isEffortBalance() {
+        return effortBalance;
+    }
+
+    public void setEffortBalance(boolean EffortBalance) {
+        this.effortBalance = EffortBalance;
+    }
+
+    public boolean isExpertiseBalance() {
+        return expertiseBalance;
+    }
+
+    public void setExpertiseBalance(boolean ExpertiseBalance) {
+        this.expertiseBalance = ExpertiseBalance;
+    }
+
+    public boolean isVisibility() {
+        return visibility;
+    }
+
+    public void setVisibility(boolean Visibility) {
+        this.visibility = Visibility;
+    }
+
+    public boolean isSustainability() {
+        return sustainability;
+    }
+
+    public void setSustainability(boolean Sustainability) {
+        this.sustainability = Sustainability;
+    }
+
+    public boolean isDiversity() {
+        return diversity;
+    }
+
+    public void setDiversity(boolean Diversity) {
+        this.diversity = Diversity;
+    }
+
+    public boolean isProductivity() {
+        return productivity;
+    }
+
+    public void setProductivity(boolean Productivity) {
+        this.productivity = Productivity;
+    }
+
+    public boolean isInterrelatedness() {
+        return interrelatedness;
+    }
+
+    public void setInterrelatedness(boolean Interrelatedness) {
+        this.interrelatedness = Interrelatedness;
+    }
+
+    public boolean isInformationConsistence() {
+        return informationConsistence;
+    }
+
+    public void setInformationConsistence(boolean InformationConsistence) {
+        this.informationConsistence = InformationConsistence;
+    }
+
+    public boolean isClustering() {
+        return clustering;
+    }
+
+    public void setClustering(boolean Clustering) {
+        this.clustering = Clustering;
+    }
+
+    public boolean isFinancialConsistence() {
+        return financialConsistence;
+    }
+
+    public void setFinancialConsistence(boolean FinancialConsistence) {
+        this.financialConsistence = FinancialConsistence;
+    }
+
+    public boolean isRobustness() {
+        return robustness;
+    }
+
+    public void setRobustness(boolean Robustness) {
+        this.robustness = Robustness;
+    }
+
+    public boolean isNicheCreation() {
+        return nicheCreation;
+    }
+
+    public void setNicheCreation(boolean NicheCreation) {
+        this.nicheCreation = NicheCreation;
+    }
+    
+    
 
     public int getActiveMembers() {
         return activeMembers;
@@ -309,11 +535,11 @@ public class PlatformModel {
     }
 
     public int getConnectivityCapacity() {
-        return ConnectivityCapacity;
+        return connectivityCapacity;
     }
 
-    public void setConnectivityCapacity(int ConnectivityCapacity) {
-        this.ConnectivityCapacity = ConnectivityCapacity;
+    public void setConnectivityCapacity(int connectivityCapacity) {
+        this.connectivityCapacity = connectivityCapacity;
     }
 
     public int getRatioConnectionsCapacity() {
@@ -341,11 +567,11 @@ public class PlatformModel {
     }
 
     public String getGlossaryOfTerms() {
-        return GlossaryOfTerms;
+        return glossaryOfTerms;
     }
 
     public void setGlossaryOfTerms(String GlossaryOfTerms) {
-        this.GlossaryOfTerms = GlossaryOfTerms;
+        this.glossaryOfTerms = GlossaryOfTerms;
     }
 
     public int getNumberOfProductTypes() {
@@ -357,11 +583,11 @@ public class PlatformModel {
     }
 
     public int getGreaterCollaboration() {
-        return GreaterCollaboration;
+        return greaterCollaboration;
     }
 
     public void setGreaterCollaboration(int GreaterCollaboration) {
-        this.GreaterCollaboration = GreaterCollaboration;
+        this.greaterCollaboration = GreaterCollaboration;
     }
 
     public int getNumberOfActiveProjects() {
@@ -373,11 +599,11 @@ public class PlatformModel {
     }
 
     public int getTotalProducedFiles() {
-        return TotalProducedFiles;
+        return totalProducedFiles;
     }
 
     public void setTotalProducedFiles(int TotalProducedFiles) {
-        this.TotalProducedFiles = TotalProducedFiles;
+        this.totalProducedFiles = TotalProducedFiles;
     }
 
     public int getNumberOfPartners() {
@@ -397,11 +623,11 @@ public class PlatformModel {
     }
 
     public int getTotalContributionValue() {
-        return TotalContributionValue;
+        return totalContributionValue;
     }
 
     public void setTotalContributionValue(int TotalContributionValue) {
-        this.TotalContributionValue = TotalContributionValue;
+        this.totalContributionValue = TotalContributionValue;
     }
 
     public int getNumberOfActiveContributors() {
@@ -467,22 +693,7 @@ public class PlatformModel {
     public void setNumberOfTypesDevTechSupported(int numberOfTypesDevTechSupported) {
         this.numberOfTypesDevTechSupported = numberOfTypesDevTechSupported;
     }
-    private int numberOfProductTypes;
-    private int GreaterCollaboration;
-    private int numberOfActiveProjects;
-    private int TotalProducedFiles;
-    private int numberOfPartners;
-    private int numberOfCommercialSponsors;
-    private int TotalContributionValue;
-    private int numberOfActiveContributors;
-    private int numberOfFrequentUsers;
-    private String haveDocumentation;
-    private int numberOfContributorsTypes;
-    private int numberOfTypesAppProjects;
-    private String supportNaturalLanguages;
-    private int numberOfTypesTechSupported;
-    private int numberOfTypesDevTechSupported;
-
+    
     public String getName() {
         return name;
     }
@@ -546,9 +757,469 @@ public class PlatformModel {
     public void setNumberOfHoursWorked(int numberOfHoursWorked) {
         this.numberOfHoursWorked = numberOfHoursWorked;
     }
-    
-    
-    
-    
-    
+
+    public int getNumberOfCountriesPar() {
+        return numberOfCountriesPar;
+    }
+
+    public void setNumberOfCountriesPar(int numberOfCountriesPar) {
+        this.numberOfCountriesPar = numberOfCountriesPar;
+    }
+
+    public int getSemanticClosenessAvgPar() {
+        return semanticClosenessAvgPar;
+    }
+
+    public void setSemanticClosenessAvgPar(int semanticClosenessAvgPar) {
+        this.semanticClosenessAvgPar = semanticClosenessAvgPar;
+    }
+
+    public int getNumberOfNodeTypesPar() {
+        return numberOfNodeTypesPar;
+    }
+
+    public void setNumberOfNodeTypesPar(int numberOfNodeTypesPar) {
+        this.numberOfNodeTypesPar = numberOfNodeTypesPar;
+    }
+
+    public int getTimeWorkTogetherPar() {
+        return timeWorkTogetherPar;
+    }
+
+    public void setTimeWorkTogetherPar(int timeWorkTogetherPar) {
+        this.timeWorkTogetherPar = timeWorkTogetherPar;
+    }
+
+    public int getNumberOfNewMembersPar() {
+        return numberOfNewMembersPar;
+    }
+
+    public void setNumberOfNewMembersPar(int numberOfNewMembersPar) {
+        this.numberOfNewMembersPar = numberOfNewMembersPar;
+    }
+
+    public int getDeveloperCommitsPar() {
+        return developerCommitsPar;
+    }
+
+    public void setDeveloperCommitsPar(int developerCommitsPar) {
+        this.developerCommitsPar = developerCommitsPar;
+    }
+
+    public int getNumberOfHoursWorkedPar() {
+        return numberOfHoursWorkedPar;
+    }
+
+    public void setNumberOfHoursWorkedPar(int numberOfHoursWorkedPar) {
+        this.numberOfHoursWorkedPar = numberOfHoursWorkedPar;
+    }
+
+    public int getActiveMembersPar() {
+        return activeMembersPar;
+    }
+
+    public void setActiveMembersPar(int activeMembersPar) {
+        this.activeMembersPar = activeMembersPar;
+    }
+
+    public int getNumberOfCommunitsPar() {
+        return numberOfCommunitsPar;
+    }
+
+    public void setNumberOfCommunitsPar(int numberOfCommunitsPar) {
+        this.numberOfCommunitsPar = numberOfCommunitsPar;
+    }
+
+    public int getNumberOfReleasesPar() {
+        return numberOfReleasesPar;
+    }
+
+    public void setNumberOfReleasesPar(int numberOfReleasesPar) {
+        this.numberOfReleasesPar = numberOfReleasesPar;
+    }
+
+    public int getTotalEfforPar() {
+        return totalEfforPar;
+    }
+
+    public void setTotalEfforPar(int totalEfforPar) {
+        this.totalEfforPar = totalEfforPar;
+    }
+
+    public int getNumberOfModifiedFilesPar() {
+        return numberOfModifiedFilesPar;
+    }
+
+    public void setNumberOfModifiedFilesPar(int numberOfModifiedFilesPar) {
+        this.numberOfModifiedFilesPar = numberOfModifiedFilesPar;
+    }
+
+    public int getNumberModifiedFileTypesPar() {
+        return numberModifiedFileTypesPar;
+    }
+
+    public void setNumberModifiedFileTypesPar(int numberModifiedFileTypesPar) {
+        this.numberModifiedFileTypesPar = numberModifiedFileTypesPar;
+    }
+
+    public int getNumberOfEventParticipantsPar() {
+        return numberOfEventParticipantsPar;
+    }
+
+    public void setNumberOfEventParticipantsPar(int numberOfEventParticipantsPar) {
+        this.numberOfEventParticipantsPar = numberOfEventParticipantsPar;
+    }
+
+    public int getNumberOfEventProjectParticipantsPar() {
+        return numberOfEventProjectParticipantsPar;
+    }
+
+    public void setNumberOfEventProjectParticipantsPar(int numberOfEventProjectParticipantsPar) {
+        this.numberOfEventProjectParticipantsPar = numberOfEventProjectParticipantsPar;
+    }
+
+    public int getNumberOfJobAdvertisementsPar() {
+        return numberOfJobAdvertisementsPar;
+    }
+
+    public void setNumberOfJobAdvertisementsPar(int numberOfJobAdvertisementsPar) {
+        this.numberOfJobAdvertisementsPar = numberOfJobAdvertisementsPar;
+    }
+
+    public int getNumberOfDownloadsPar() {
+        return numberOfDownloadsPar;
+    }
+
+    public void setNumberOfDownloadsPar(int numberOfDownloadsPar) {
+        this.numberOfDownloadsPar = numberOfDownloadsPar;
+    }
+
+    public int getNumberOfMailingListMembersPar() {
+        return numberOfMailingListMembersPar;
+    }
+
+    public void setNumberOfMailingListMembersPar(int numberOfMailingListMembersPar) {
+        this.numberOfMailingListMembersPar = numberOfMailingListMembersPar;
+    }
+
+    public int getNumberOfPassiveUsersPar() {
+        return numberOfPassiveUsersPar;
+    }
+
+    public void setNumberOfPassiveUsersPar(int numberOfPassiveUsersPar) {
+        this.numberOfPassiveUsersPar = numberOfPassiveUsersPar;
+    }
+
+    public int getNumberOfReadersPar() {
+        return numberOfReadersPar;
+    }
+
+    public void setNumberOfReadersPar(int numberOfReadersPar) {
+        this.numberOfReadersPar = numberOfReadersPar;
+    }
+
+    public int getNumberOfScientificPublicationPar() {
+        return numberOfScientificPublicationPar;
+    }
+
+    public void setNumberOfScientificPublicationPar(int numberOfScientificPublicationPar) {
+        this.numberOfScientificPublicationPar = numberOfScientificPublicationPar;
+    }
+
+    public int getNumberOfSocialMediaHitsPar() {
+        return numberOfSocialMediaHitsPar;
+    }
+
+    public void setNumberOfSocialMediaHitsPar(int numberOfSocialMediaHitsPar) {
+        this.numberOfSocialMediaHitsPar = numberOfSocialMediaHitsPar;
+    }
+
+    public int getNumberOfWebPageRequestsPar() {
+        return numberOfWebPageRequestsPar;
+    }
+
+    public void setNumberOfWebPageRequestsPar(int numberOfWebPageRequestsPar) {
+        this.numberOfWebPageRequestsPar = numberOfWebPageRequestsPar;
+    }
+
+    public int getNumberOfDevelopersPar() {
+        return numberOfDevelopersPar;
+    }
+
+    public void setNumberOfDevelopersPar(int numberOfDevelopersPar) {
+        this.numberOfDevelopersPar = numberOfDevelopersPar;
+    }
+
+    public int getNumberOfUsersGroupsPar() {
+        return numberOfUsersGroupsPar;
+    }
+
+    public void setNumberOfUsersGroupsPar(int numberOfUsersGroupsPar) {
+        this.numberOfUsersGroupsPar = numberOfUsersGroupsPar;
+    }
+
+    public int getNumberOfProgrammingLanguagesSupportedPar() {
+        return numberOfProgrammingLanguagesSupportedPar;
+    }
+
+    public void setNumberOfProgrammingLanguagesSupportedPar(int numberOfProgrammingLanguagesSupportedPar) {
+        this.numberOfProgrammingLanguagesSupportedPar = numberOfProgrammingLanguagesSupportedPar;
+    }
+
+    public int getNumberOfDifferentHardwareDevicesPar() {
+        return numberOfDifferentHardwareDevicesPar;
+    }
+
+    public void setNumberOfDifferentHardwareDevicesPar(int numberOfDifferentHardwareDevicesPar) {
+        this.numberOfDifferentHardwareDevicesPar = numberOfDifferentHardwareDevicesPar;
+    }
+
+    public String getExistPlanForCollapsePar() {
+        return existPlanForCollapsePar;
+    }
+
+    public void setExistPlanForCollapsePar(String existPlanForCollapsePar) {
+        this.existPlanForCollapsePar = existPlanForCollapsePar;
+    }
+
+    public int getNumberOfProjectsAddedPar() {
+        return numberOfProjectsAddedPar;
+    }
+
+    public void setNumberOfProjectsAddedPar(int numberOfProjectsAddedPar) {
+        this.numberOfProjectsAddedPar = numberOfProjectsAddedPar;
+    }
+
+    public int getNumberOfEventsPar() {
+        return numberOfEventsPar;
+    }
+
+    public void setNumberOfEventsPar(int numberOfEventsPar) {
+        this.numberOfEventsPar = numberOfEventsPar;
+    }
+
+    public int getAddedKLOCPar() {
+        return addedKLOCPar;
+    }
+
+    public void setAddedKLOCPar(int addedKLOCPar) {
+        this.addedKLOCPar = addedKLOCPar;
+    }
+
+    public int getNumberOfArtifactsPar() {
+        return numberOfArtifactsPar;
+    }
+
+    public void setNumberOfArtifactsPar(int numberOfArtifactsPar) {
+        this.numberOfArtifactsPar = numberOfArtifactsPar;
+    }
+
+    public int getNumberOfTransmittedMessagesPar() {
+        return numberOfTransmittedMessagesPar;
+    }
+
+    public void setNumberOfTransmittedMessagesPar(int numberOfTransmittedMessagesPar) {
+        this.numberOfTransmittedMessagesPar = numberOfTransmittedMessagesPar;
+    }
+
+    public int getBugFixTimePar() {
+        return bugFixTimePar;
+    }
+
+    public void setBugFixTimePar(int bugFixTimePar) {
+        this.bugFixTimePar = bugFixTimePar;
+    }
+
+    public int getNumberOfPartnersAddedPar() {
+        return numberOfPartnersAddedPar;
+    }
+
+    public void setNumberOfPartnersAddedPar(int numberOfPartnersAddedPar) {
+        this.numberOfPartnersAddedPar = numberOfPartnersAddedPar;
+    }
+
+    public int getNumberOfUsersPar() {
+        return numberOfUsersPar;
+    }
+
+    public void setNumberOfUsersPar(int numberOfUsersPar) {
+        this.numberOfUsersPar = numberOfUsersPar;
+    }
+
+    public int getAverageTimeUsePar() {
+        return averageTimeUsePar;
+    }
+
+    public void setAverageTimeUsePar(int averageTimeUsePar) {
+        this.averageTimeUsePar = averageTimeUsePar;
+    }
+
+    public int getNumberOfNodesConnectionsPar() {
+        return numberOfNodesConnectionsPar;
+    }
+
+    public void setNumberOfNodesConnectionsPar(int numberOfNodesConnectionsPar) {
+        this.numberOfNodesConnectionsPar = numberOfNodesConnectionsPar;
+    }
+
+    public int getConnectivityCapacityPar() {
+        return connectivityCapacityPar;
+    }
+
+    public void setConnectivityCapacityPar(int connectivityCapacityPar) {
+        this.connectivityCapacityPar = connectivityCapacityPar;
+    }
+
+    public int getRatioConnectionsCapacityPar() {
+        return ratioConnectionsCapacityPar;
+    }
+
+    public void setRatioConnectionsCapacityPar(int ratioConnectionsCapacityPar) {
+        this.ratioConnectionsCapacityPar = ratioConnectionsCapacityPar;
+    }
+
+    public int getNodesCentralityPar() {
+        return nodesCentralityPar;
+    }
+
+    public void setNodesCentralityPar(int nodesCentralityPar) {
+        this.nodesCentralityPar = nodesCentralityPar;
+    }
+
+    public int getNumberOfExternalPartnersPar() {
+        return numberOfExternalPartnersPar;
+    }
+
+    public void setNumberOfExternalPartnersPar(int numberOfExternalPartnersPar) {
+        this.numberOfExternalPartnersPar = numberOfExternalPartnersPar;
+    }
+
+    public String getGlossaryOfTermsPar() {
+        return glossaryOfTermsPar;
+    }
+
+    public void setGlossaryOfTermsPar(String glossaryOfTermsPar) {
+        this.glossaryOfTermsPar = glossaryOfTermsPar;
+    }
+
+    public int getNumberOfProductTypesPar() {
+        return numberOfProductTypesPar;
+    }
+
+    public void setNumberOfProductTypesPar(int numberOfProductTypesPar) {
+        this.numberOfProductTypesPar = numberOfProductTypesPar;
+    }
+
+    public int getGreaterCollaborationPar() {
+        return greaterCollaborationPar;
+    }
+
+    public void setGreaterCollaborationPar(int greaterCollaborationPar) {
+        this.greaterCollaborationPar = greaterCollaborationPar;
+    }
+
+    public int getNumberOfActiveProjectsPar() {
+        return numberOfActiveProjectsPar;
+    }
+
+    public void setNumberOfActiveProjectsPar(int numberOfActiveProjectsPar) {
+        this.numberOfActiveProjectsPar = numberOfActiveProjectsPar;
+    }
+
+    public int getTotalProducedFilesPar() {
+        return totalProducedFilesPar;
+    }
+
+    public void setTotalProducedFilesPar(int totalProducedFilesPar) {
+        this.totalProducedFilesPar = totalProducedFilesPar;
+    }
+
+    public int getNumberOfPartnersPar() {
+        return numberOfPartnersPar;
+    }
+
+    public void setNumberOfPartnersPar(int numberOfPartnersPar) {
+        this.numberOfPartnersPar = numberOfPartnersPar;
+    }
+
+    public int getNumberOfCommercialSponsorsPar() {
+        return numberOfCommercialSponsorsPar;
+    }
+
+    public void setNumberOfCommercialSponsorsPar(int numberOfCommercialSponsorsPar) {
+        this.numberOfCommercialSponsorsPar = numberOfCommercialSponsorsPar;
+    }
+
+    public int getTotalContributionValuePar() {
+        return totalContributionValuePar;
+    }
+
+    public void setTotalContributionValuePar(int totalContributionValuePar) {
+        this.totalContributionValuePar = totalContributionValuePar;
+    }
+
+    public int getNumberOfActiveContributorsPar() {
+        return numberOfActiveContributorsPar;
+    }
+
+    public void setNumberOfActiveContributorsPar(int numberOfActiveContributorsPar) {
+        this.numberOfActiveContributorsPar = numberOfActiveContributorsPar;
+    }
+
+    public int getNumberOfFrequentUsersPar() {
+        return numberOfFrequentUsersPar;
+    }
+
+    public void setNumberOfFrequentUsersPar(int numberOfFrequentUsersPar) {
+        this.numberOfFrequentUsersPar = numberOfFrequentUsersPar;
+    }
+
+    public String getHaveDocumentationPar() {
+        return haveDocumentationPar;
+    }
+
+    public void setHaveDocumentationPar(String haveDocumentationPar) {
+        this.haveDocumentationPar = haveDocumentationPar;
+    }
+
+    public int getNumberOfContributorsTypesPar() {
+        return numberOfContributorsTypesPar;
+    }
+
+    public void setNumberOfContributorsTypesPar(int numberOfContributorsTypesPar) {
+        this.numberOfContributorsTypesPar = numberOfContributorsTypesPar;
+    }
+
+    public int getNumberOfTypesAppProjectsPar() {
+        return numberOfTypesAppProjectsPar;
+    }
+
+    public void setNumberOfTypesAppProjectsPar(int numberOfTypesAppProjectsPar) {
+        this.numberOfTypesAppProjectsPar = numberOfTypesAppProjectsPar;
+    }
+
+    public String getSupportNaturalLanguagesPar() {
+        return supportNaturalLanguagesPar;
+    }
+
+    public void setSupportNaturalLanguagesPar(String supportNaturalLanguagesPar) {
+        this.supportNaturalLanguagesPar = supportNaturalLanguagesPar;
+    }
+
+    public int getNumberOfTypesTechSupportedPar() {
+        return numberOfTypesTechSupportedPar;
+    }
+
+    public void setNumberOfTypesTechSupportedPar(int numberOfTypesTechSupportedPar) {
+        this.numberOfTypesTechSupportedPar = numberOfTypesTechSupportedPar;
+    }
+
+    public int getNumberOfTypesDevTechSupportedPar() {
+        return numberOfTypesDevTechSupportedPar;
+    }
+
+    public void setNumberOfTypesDevTechSupportedPar(int numberOfTypesDevTechSupportedPar) {
+        this.numberOfTypesDevTechSupportedPar = numberOfTypesDevTechSupportedPar;
+    }
+
 }
