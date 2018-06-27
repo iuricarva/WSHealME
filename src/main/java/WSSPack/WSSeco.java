@@ -14,8 +14,9 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
@@ -38,166 +39,45 @@ public class WSSeco {
 
     /**
      * Retrieves representation of an instance of WSSPack.WSSeco
-     * @return an instance of java.lang.String
+     * @param platform
+     * @return 
      */
         
-   
+       
+    
+    @PUT
+    @Path("create")
+    @Consumes(MediaType.APPLICATION_XML)
+    public String createPlatform(PlatformModel platform){
+        return OntoController.createPlatform(platform);
+    }
+    
+    @POST
+    @Path("edit")
+    @Consumes(MediaType.APPLICATION_XML)
+    public String editPlatform(PlatformModel platform){
+        return OntoController.savePlatform(platform);
+    }
+    
     @GET
     @Produces(MediaType.APPLICATION_XML)
-    @Path("getdata")
-    public static List<PlatformModel> returnData(){
-        return OntoController.returnData();
+    @Path("getplatform/{name}")
+    public static PlatformModel returnPlatform(@PathParam("name") String name){
+        return OntoController.returnPlatform(name);
     }
-        
+    
     @GET
     @Produces(MediaType.APPLICATION_XML)
     @Path("getplatforms")
-    public List<IndividualModel> getPlatforms() {
-        
+    public List<PlatformModel> getPlatforms() {
         return OntoController.returnPlatforms();
-        
     }
     
     @GET
     @Produces(MediaType.APPLICATION_XML)
-    @Path("getheterogeneity")
-    public List<IndividualModel> getHeterogeneity() {
-        
-        return OntoController.returnHeterogeneity();
-        
-    }
-    
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    @Path("getregenerationability")
-    public List<IndividualModel> getRegenerationAbility() {
-        
-        return OntoController.returnRegenerationAbility();
-        
-    }
-    
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    @Path("geteffortbalance")
-    public List<IndividualModel> getEffortBalance() {
-        
-        return OntoController.returnEffortBalance();
-        
-    }
-    
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    @Path("getexpertisebalance")
-    public List<IndividualModel> getExpertiseBalance() {
-        
-        return OntoController.returnExpertiseBalance();
-        
-    }
-    
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    @Path("getvisibility")
-    public List<IndividualModel> getVisibility() {
-        
-        return OntoController.returnVisibility();
-        
-    }
-    
-       
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    @Path("getsustainability")
-    public List<IndividualModel> getSustainability() {
-        
-        return OntoController.returnSustainability();
-        
-    }
-    
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    @Path("gethealth")
-    public List<IndividualModel> getHealth() {
-        
-        return OntoController.returnHealth();
-        
-    }
-    
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    @Path("getproductivity")
-    public List<IndividualModel> getProductivity() {
-        
-        return OntoController.returnProductivity();
-        
-    }
-    
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    @Path("getdiversity")
-    public List<IndividualModel> getDiversity() {
-        
-        return OntoController.returnDiversity();
-        
-    }
-    
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    @Path("getnichecreation")
-    public List<IndividualModel> getNicheCreation() {
-        
-        return OntoController.returnNicheCreation();
-        
-    }
-    
-    @GET
-    @Path("/insertplatform/{platform}/{parameter}")
-    @Produces(MediaType.APPLICATION_XML)
-    public void getTeste(@PathParam("platform")String platfomr, @PathParam("parameter")String parameter) {
-        OntoController.salvaIndividuos(platfomr, parameter);
-    }
-    
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    @Path("getinformationconsistence")
-    public List<IndividualModel> getInformationConsistencce() {
-        
-        return OntoController.returnInformationConsistence();
-        
-    }
-    
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    @Path("getinterrelatedness")
-    public List<IndividualModel> getInterrelatedness() {
-        
-        return OntoController.returnInterrelatedness();
-        
-    }
-    
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    @Path("getclustering")
-    public List<IndividualModel> getClustering() {
-        
-        return OntoController.returnClustering();
-        
-    }
-    
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    @Path("getfinancialconsistence")
-    public List<IndividualModel> getFinancialConsistence() {
-        
-        return OntoController.returnFinancialConsistence();
-        
+    @Path("getdata/{name}")
+    public static List<PlatformModel> returnData(@PathParam("name") String name){
+        return OntoController.returnData(name);
     }
 
-    /**
-     * PUT method for updating or creating an instance of WSSeco
-     * @param content representation for the resource
-     */
-    @PUT
-    @Consumes(MediaType.APPLICATION_XML)
-    public void putXml(String content) {
-    }
 }
